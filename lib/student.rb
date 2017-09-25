@@ -44,9 +44,9 @@ class Student
 
   def update
     sql = <<-SQL
-      UPDATE students SET name = ?, grade = ?
+      UPDATE students SET name = ?, grade = ? WHERE id = ?
     SQL
-    DB[:conn].execute(sql, name, grade)
+    DB[:conn].execute(sql, name, grade, id)
   end
 
   def persisted?
